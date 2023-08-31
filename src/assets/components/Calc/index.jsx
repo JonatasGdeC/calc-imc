@@ -14,22 +14,34 @@ const Calc = () => {
     const optionMed = () =>{
         if(selectedOption === 'option1'){
             return (
-                <form>
-                    <label>Heigth</label>
-                    <input type="number" onChange={evento => setValorCentimetros(parseInt(evento.target.value))}/>
-                    <label>Weight</label>
-                    <input type="number" onChange={evento => setValorPeso(parseInt(evento.target.value))}/>
+                <form className={styles.headerCalcInputsMetric}>
+                    <div>
+                        <label>Heigth</label>
+                        <input type="number" placeholder="cm" onChange={evento => setValorCentimetros(parseInt(evento.target.value))}/>
+                    </div>
+                    <div>
+                        <label>Weight</label>
+                        <input type="number" placeholder="kg" onChange={evento => setValorPeso(parseInt(evento.target.value))}/>
+                    </div>
                 </form>
             )
         } else {
             return(
-                <form>
-                    <label>Heigth</label>
-                    <input type="number" placeholder="ft" onChange={evento => setValorFT(evento.target.value)} />
-                    <input type="number" placeholder="in" onChange={evento => setValorIN(evento.target.value)} />
-                    <label>Weight</label>
-                    <input type="number" placeholder="st" onChange={evento => setValorST(evento.target.value)} />
-                    <input type="number" placeholder="lbs" onChange={evento => setValorLBS(evento.target.value)} />
+                <form className={styles.headerCalcInputsImperial}>
+                    <div>
+                        <label>Heigth</label>
+                        <div className={styles.headerCalcInputsImperialInput}>
+                            <input type="number" placeholder="ft" onChange={evento => setValorFT(evento.target.value)} />
+                            <input type="number" placeholder="in" onChange={evento => setValorIN(evento.target.value)} />
+                        </div>
+                    </div>
+                    <div>
+                        <label>Weight</label>
+                        <div className={styles.headerCalcInputsImperialInput}>
+                            <input type="number" placeholder="st" onChange={evento => setValorST(evento.target.value)} />
+                            <input type="number" placeholder="lbs" onChange={evento => setValorLBS(evento.target.value)} />
+                        </div>
+                    </div>
                 </form>
             )
         }
@@ -200,8 +212,14 @@ const Calc = () => {
             <div className={styles.headerCalc}>
                 <h2 className={styles.headerCalcTitle}>Enter your details below</h2>
                 <form className={styles.headerCalcForm}>
-                    <input type="radio" name="options" value="option1" checked={selectedOption === 'option1'} onChange={handleOptionChange}/><p className={styles.headerCalcOptions}>Metric</p>
-                    <input type="radio" name="options" value="option2" checked={selectedOption === 'option2'} onChange={handleOptionChange}/><p className={styles.headerCalcOptions}>Imperial</p>
+                    <div>
+                        <input type="radio" name="options" value="option1" checked={selectedOption === 'option1'} onChange={handleOptionChange}/>
+                        <p className={styles.headerCalcOptions}>Metric</p>    
+                    </div>
+                    <div>
+                        <input type="radio" name="options" value="option2" checked={selectedOption === 'option2'} onChange={handleOptionChange}/>
+                        <p className={styles.headerCalcOptions}>Imperial</p>
+                    </div>
                 </form>
                 <div className={styles.headerCalcInputs}>
                     {optionMed()}
