@@ -1,4 +1,5 @@
 import { useState } from "react"
+import styles from './Calc.module.scss';
 
 const Calc = () => {
     //Variáveis e lógica de seleção da medida para calcular
@@ -95,13 +96,13 @@ const Calc = () => {
             }
 
             return(
-                <div>
+                <div className={styles.headerCalcResultsIMC}>
                     <div>
                         <h4>Your BMI is...</h4>
                         <h3>{imcArredondado}</h3>
                     </div>
                     <div>
-                        {imcIdealMetric()}
+                        <p>{imcIdealMetric()}</p>
                     </div>
                 </div>
             )
@@ -170,40 +171,44 @@ const Calc = () => {
             }
 
             return (
-                <div>
+                <div className={styles.headerCalcResultsIMC}>
                     <div>
                         <h4>Your BMI is...</h4>
                         <h3>{imcArredondado}</h3>
                     </div>
                     <div>
-                        {imcIdealImperial()}
+                        <p>{imcIdealImperial()}</p>
                     </div>
                 </div>
             )
         } else {
             return(
-                <>
+                <div className={styles.headerCalcResultsWelcome}>
                     <h3>Welcome!</h3>
                     <p>Enter your height and weight and you’ll see your BMI result here</p>
-                </>
+                </div>
             )
         }
     }
 
     return(
-        <div>
+        <div className={styles.header}>
             <div>
-                <h1>Body Mass Index Calculator</h1>
-                <p>Better understand your weight in relation to your height using our body mass index (BM) calculator. While BMI is not the sole determinant of a healthy weight, it offers a valuable starting point to evaluate your overall health and well-being.</p>
+                <h1 className={styles.headerTitle}>Body Mass Index Calculator</h1>
+                <p className={styles.headerText}>Better understand your weight in relation to your height using our body mass index (BM) calculator. While BMI is not the sole determinant of a healthy weight, it offers a valuable starting point to evaluate your overall health and well-being.</p>
             </div>
-            <div>
-                <h2>Enter your details below</h2>
-                <form>
-                    <input type="radio" name="options" value="option1" checked={selectedOption === 'option1'} onChange={handleOptionChange}/><p>Metric</p>
-                    <input type="radio" name="options" value="option2" checked={selectedOption === 'option2'} onChange={handleOptionChange}/><p>Imperial</p>
+            <div className={styles.headerCalc}>
+                <h2 className={styles.headerCalcTitle}>Enter your details below</h2>
+                <form className={styles.headerCalcForm}>
+                    <input type="radio" name="options" value="option1" checked={selectedOption === 'option1'} onChange={handleOptionChange}/><p className={styles.headerCalcOptions}>Metric</p>
+                    <input type="radio" name="options" value="option2" checked={selectedOption === 'option2'} onChange={handleOptionChange}/><p className={styles.headerCalcOptions}>Imperial</p>
                 </form>
-                {optionMed()}
-                {calculando()}
+                <div className={styles.headerCalcInputs}>
+                    {optionMed()}
+                </div>
+                <div className={styles.headerCalcResults}>
+                    {calculando()}
+                </div>
             </div>
         </div>
     )
