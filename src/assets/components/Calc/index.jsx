@@ -51,33 +51,45 @@ const Calc = () => {
             const imc = valorPeso / (alturaMetros * alturaMetros)
             const imcArredondado = imc.toFixed(1)
 
+            const pesoIdeal = () => {
+                    const imcMinimo = 18.5; // IMC mínimo para estar na faixa saudável
+                    const imcMaximo = 24.9; // IMC máximo para estar na faixa saudável
+                    
+                    const pesoMinimo = imcMinimo * (alturaMetros * alturaMetros);
+                    const pesoMaximo = imcMaximo * (alturaMetros * alturaMetros);
+
+                    const oPesoIdealE = `${pesoMinimo.toFixed(1)}Kgs - ${pesoMaximo.toFixed(1)}Kgs`;
+                
+                    return (
+                        <b>{oPesoIdealE}</b>
+                    )
+            }
+
             // Frase de imc ideal
             const imcIdealMetric = () =>{
                 if(imcArredondado <= 18.5){
                     return(
-                        <p>Abaixo do peso</p>
+                        <p>Your BMI suggests that you are underweight. Your ideal weight is between {pesoIdeal()}.</p>
                     )
                 } else if (imcArredondado >= 18.6 && imcArredondado <= 24.9){
                     return(
-                        <p>
-                            Your BMI suggests you’re a healthy weight. Your ideal weight is between <b>63.3kgs - 85.2kgs</b>.    
-                        </p>
+                        <p>Your BMI suggests you’re a healthy weight. Your ideal weight is between {pesoIdeal()}.</p>
                     )
                 } else if (imcArredondado >= 25.0 && imcArredondado <= 29.9){
                     return(
-                        <p>Levemente acima do peso</p>
+                        <p>Your BMI suggests that you are slightly overweight. Your ideal weight is between {pesoIdeal()}.</p>
                     )
                 } else if (imcArredondado >= 30.0 && imcArredondado <= 34.9){
                     return(
-                        <p>Obesidade grau 1</p>
+                        <p>Your BMI suggests you have grade 1 obesity. Your ideal weight is between {pesoIdeal()}.</p>
                     )
                 } else if (imcArredondado >= 35.0 && imcArredondado <= 39.9){
                     return(
-                        <p>Obesidade grau 2</p>
+                        <p>Your BMI suggests you have grade 2 obesity. Your ideal weight is between {pesoIdeal()}.</p>
                     )
                 } else if (imcArredondado >= 40.0){
                     return(
-                        <p>Obesidade grau 3</p>
+                        <p>Your BMI suggests you have grade 3 obesity. Your ideal weight is between {pesoIdeal()}.</p>
                     )
                 }
             }
@@ -100,31 +112,59 @@ const Calc = () => {
             const imc = pesoKG/(alturaMetros*alturaMetros) * 703
             const imcArredondado = imc.toFixed(1)
 
+            const pesoIdeal = () => {
+                const imcMinimo = 18.5; // IMC mínimo para estar na faixa saudável
+                const imcMaximo = 24.9; // IMC máximo para estar na faixa saudável
+                
+                const pesoMinimo = imcMinimo * (alturaMetros * alturaMetros); //Em Kgs
+                const pesoMaximo = imcMaximo * (alturaMetros * alturaMetros); //Em kgs
+
+                //st e lbs Mínimo
+                const kgParaLbsMin = pesoMinimo / 0.45359237; // Converter kg para libras
+                const lbsTotalMin = Math.floor(kgParaLbsMin); // Obter a parte inteira em libras
+                const lbsRestoMin = (kgParaLbsMin - lbsTotalMin) * 14; // Converter a parte decimal em libras para stones e libras
+                const stMin = Math.floor(lbsTotalMin / 14); // Calcular stones
+                const lbsMin = Math.round(lbsRestoMin); // Arredondar as libras restantes
+
+                //st e lbs Máximo
+                const kgParaLbsMax = pesoMaximo / 0.45359237; // Converter kg para libras
+                const lbsTotalMax = Math.floor(kgParaLbsMax); // Obter a parte inteira em libras
+                const lbsRestoMax = (kgParaLbsMax - lbsTotalMax) * 14; // Converter a parte decimal em libras para stones e libras
+                const stMax = Math.floor(lbsTotalMax / 14); // Calcular stones
+                const lbsMax = Math.round(lbsRestoMax); // Arredondar as libras restantes
+
+                const oPesoIdealE = `${stMin}st ${lbsMin}lbs - ${stMax}st ${lbsMax}lbs`;
+            
+                return (
+                    <b>{oPesoIdealE}</b>
+                )
+        }
+
             //Frase de imc ideal
             const imcIdealImperial = () => {
                 if(imcArredondado <= 18.5){
                     return(
-                        <p>Abaixo do peso</p>
+                        <p>Your BMI suggests that you are underweight. Your ideal weight is between {pesoIdeal()}.</p>
                     )
                 } else if (imcArredondado >= 18.6 && imcArredondado <= 24.9){
                     return(
-                        <p>Peso ideal</p>
+                        <p>Your BMI suggests you’re a healthy weight. Your ideal weight is between {pesoIdeal()}.</p>
                     )
                 } else if (imcArredondado >= 25.0 && imcArredondado <= 29.9){
                     return(
-                        <p>Levemente acima do peso</p>
+                        <p>Your BMI suggests that you are slightly overweight. Your ideal weight is between {pesoIdeal()}.</p>
                     )
                 } else if (imcArredondado >= 30.0 && imcArredondado <= 34.9){
                     return(
-                        <p>Obesidade grau 1</p>
+                        <p>Your BMI suggests you have grade 1 obesity. Your ideal weight is between {pesoIdeal()}.</p>
                     )
                 } else if (imcArredondado >= 35.0 && imcArredondado <= 39.9){
                     return(
-                        <p>Obesidade grau 2</p>
+                        <p>Your BMI suggests you have grade 2 obesity. Your ideal weight is between {pesoIdeal()}.</p>
                     )
                 } else if (imcArredondado >= 40.0){
                     return(
-                        <p>Obesidade grau 3</p>
+                        <p>Your BMI suggests you have grade 3 obesity. Your ideal weight is between {pesoIdeal()}.</p>
                     )
                 }
             }
