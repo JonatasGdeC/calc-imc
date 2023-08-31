@@ -59,7 +59,9 @@ const Calc = () => {
                     )
                 } else if (imcArredondado >= 18.6 && imcArredondado <= 24.9){
                     return(
-                        <p>Peso ideal</p>
+                        <p>
+                            Your BMI suggests you’re a healthy weight. Your ideal weight is between <b>63.3kgs - 85.2kgs</b>.    
+                        </p>
                     )
                 } else if (imcArredondado >= 25.0 && imcArredondado <= 29.9){
                     return(
@@ -100,7 +102,31 @@ const Calc = () => {
 
             //Frase de imc ideal
             const imcIdealImperial = () => {
-
+                if(imcArredondado <= 18.5){
+                    return(
+                        <p>Abaixo do peso</p>
+                    )
+                } else if (imcArredondado >= 18.6 && imcArredondado <= 24.9){
+                    return(
+                        <p>Peso ideal</p>
+                    )
+                } else if (imcArredondado >= 25.0 && imcArredondado <= 29.9){
+                    return(
+                        <p>Levemente acima do peso</p>
+                    )
+                } else if (imcArredondado >= 30.0 && imcArredondado <= 34.9){
+                    return(
+                        <p>Obesidade grau 1</p>
+                    )
+                } else if (imcArredondado >= 35.0 && imcArredondado <= 39.9){
+                    return(
+                        <p>Obesidade grau 2</p>
+                    )
+                } else if (imcArredondado >= 40.0){
+                    return(
+                        <p>Obesidade grau 3</p>
+                    )
+                }
             }
 
             return (
@@ -108,6 +134,9 @@ const Calc = () => {
                     <div>
                         <h4>Your BMI is...</h4>
                         <h3>{imcArredondado}</h3>
+                    </div>
+                    <div>
+                        {imcIdealImperial()}
                     </div>
                 </div>
             )
