@@ -80,11 +80,11 @@ const Calc = () => {
 
             // Frase de imc ideal
             const imcIdealMetric = () =>{
-                if(imcArredondado <= 18.5){
+                if(imcArredondado < 18.5){
                     return(
                         <p>Your BMI suggests that you are underweight. Your ideal weight is between {pesoIdeal()}.</p>
                     )
-                } else if (imcArredondado >= 18.6 && imcArredondado <= 24.9){
+                } else if (imcArredondado >= 18.5 && imcArredondado <= 24.9){
                     return(
                         <p>Your BMI suggests you’re a healthy weight. Your ideal weight is between {pesoIdeal()}.</p>
                     )
@@ -120,34 +120,30 @@ const Calc = () => {
             )
         } else if (selectedOption === 'option2' && valorFT != 0 && valorIN != 0 && valorST !=0 && valorLBS !=0){
             // Calculando em imperial
-            const pesoKG = ((valorST * 14 ) + valorLBS) * 0.453592 //Converter para kg
-            const alturaMetros = ((valorFT*12) + valorIN) * 0.0254 //Converter para metros
-            const imc = pesoKG/(alturaMetros*alturaMetros) * 703
+            const pesoKG = Math.floor(((valorST * (14 + valorLBS))*0.45359237)/10) //Converter para kg arredondado
+            const alturaMetros = ((valorFT * 0.3048) + (valorIN * 0.0254)).toFixed(2)//Converter para metros
+            const imc = (pesoKG/(alturaMetros*alturaMetros))
             const imcArredondado = imc.toFixed(1)
 
             const pesoIdeal = () => {
                 const imcMinimo = 18.5; // IMC mínimo para estar na faixa saudável
                 const imcMaximo = 24.9; // IMC máximo para estar na faixa saudável
+
+                const pesoMinino = (imcMinimo * (alturaMetros*alturaMetros)).toFixed(2) // Em kgs
+                const pesoMaximo = (imcMaximo * (alturaMetros*alturaMetros)).toFixed(2) // Em kgs
+
+                //Conversão de Kgs de peso mínimo para St e Lbs
+                const conversaoLbsMin = pesoMinino * 2.20462 // Valor em libras
+                const stMin = conversaoLbsMin/14 
+                const lbsMin = Math.ceil((stMin - Math.floor(stMin))*10)
                 
-                const pesoMinimo = imcMinimo * (alturaMetros * alturaMetros); //Em Kgs
-                const pesoMaximo = imcMaximo * (alturaMetros * alturaMetros); //Em kgs
+                //Conversão de Kgs de peso máximo para St e Lbs
+                const conversaoLbsMax = pesoMaximo * 2.20462 // Valor em libras
+                const stMax = conversaoLbsMax/14 
+                const lbsMax = Math.ceil((stMax - Math.floor(stMax))*10)
 
-                //st e lbs Mínimo
-                const kgParaLbsMin = pesoMinimo / 0.45359237; // Converter kg para libras
-                const lbsTotalMin = Math.floor(kgParaLbsMin); // Obter a parte inteira em libras
-                const lbsRestoMin = (kgParaLbsMin - lbsTotalMin) * 14; // Converter a parte decimal em libras para stones e libras
-                const stMin = Math.floor(lbsTotalMin / 14); // Calcular stones
-                const lbsMin = Math.round(lbsRestoMin); // Arredondar as libras restantes
-
-                //st e lbs Máximo
-                const kgParaLbsMax = pesoMaximo / 0.45359237; // Converter kg para libras
-                const lbsTotalMax = Math.floor(kgParaLbsMax); // Obter a parte inteira em libras
-                const lbsRestoMax = (kgParaLbsMax - lbsTotalMax) * 14; // Converter a parte decimal em libras para stones e libras
-                const stMax = Math.floor(lbsTotalMax / 14); // Calcular stones
-                const lbsMax = Math.round(lbsRestoMax); // Arredondar as libras restantes
-
-                const oPesoIdealE = `${stMin}st ${lbsMin}lbs - ${stMax}st ${lbsMax}lbs`;
-            
+                const oPesoIdealE = `${Math.floor(stMin)}st ${lbsMin}lbs - ${Math.floor(stMax)}st ${lbsMax}lbs`
+                
                 return (
                     <b>{oPesoIdealE}</b>
                 )
@@ -155,11 +151,11 @@ const Calc = () => {
 
             //Frase de imc ideal
             const imcIdealImperial = () => {
-                if(imcArredondado <= 18.5){
+                if(imcArredondado < 18.5){
                     return(
                         <p>Your BMI suggests that you are underweight. Your ideal weight is between {pesoIdeal()}.</p>
                     )
-                } else if (imcArredondado >= 18.6 && imcArredondado <= 24.9){
+                } else if (imcArredondado >= 18.5 && imcArredondado <= 24.9){
                     return(
                         <p>Your BMI suggests you’re a healthy weight. Your ideal weight is between {pesoIdeal()}.</p>
                     )
@@ -205,7 +201,7 @@ const Calc = () => {
 
     return(
         <div className={styles.header}>
-            <div>
+            <div className={styles.headerMensage}>
                 <h1 className={styles.headerTitle}>Body Mass Index Calculator</h1>
                 <p className={styles.headerText}>Better understand your weight in relation to your height using our body mass index (BM) calculator. While BMI is not the sole determinant of a healthy weight, it offers a valuable starting point to evaluate your overall health and well-being.</p>
             </div>
