@@ -1,6 +1,8 @@
 import { useState } from "react"
 import styles from './Calc.module.scss';
 
+import ImagemLogo from '../../../image/logo.png'
+
 const Calc = () => {
     //Variáveis e lógica de seleção da medida para calcular
     // option1 === metrica
@@ -221,6 +223,7 @@ const Calc = () => {
     return(
         <div className={styles.header}>
             <div className={styles.headerMensage}>
+                <img src={ImagemLogo} alt="logo" />
                 <h1 className={styles.headerTitle}>Body Mass Index Calculator</h1>
                 <p className={styles.headerText}>Better understand your weight in relation to your height using our body mass index (BM) calculator. While BMI is not the sole determinant of a healthy weight, it offers a valuable starting point to evaluate your overall health and well-being.</p>
             </div>

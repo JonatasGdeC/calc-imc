@@ -6,10 +6,14 @@
 .header{
     width: 972px;
     display: flex;
-    padding: 131px 397px 196px 116px;
+    padding: 75px 397px 196px 116px;
     margin-right: 24px;
     border-radius: 0px 0px 35px 35px;
     background-image: linear-gradient(90deg, #fff, #D6E6FE );
+
+    img{
+        width: 64px;
+    }
 
     
     @media (max-width: 1440px){
@@ -19,6 +23,7 @@
     }
     
     &Mensage{
+        flex-direction: column;
         @media(max-width: 1440px){
             text-align: center;
         }
@@ -26,12 +31,13 @@
 
     &Title{
         @include titles();
-        margin-bottom: 35px;
+        margin: 127px 0 35px;
         font-size: 64px;
         letter-spacing: -3.2px;
 
         @media (max-width: 1440px){
             font-size: 48px;
+            margin: 24px 0;
         }
     }
 
@@ -51,6 +57,7 @@
         border-radius: 16px;
         position: absolute;
         left: 736px;
+        top: 170px;
         background-color: #fff;
         box-shadow: 16px 32px 56px 0px #D6E6FE;
 
@@ -65,6 +72,10 @@
             width: 100%;
             margin: 0;
             top: 475px;
+        }
+
+        @media(max-width: 400px){
+            top: 525px;
         }
 
         &Title{
