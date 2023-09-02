@@ -16,12 +16,18 @@ const Calc = () => {
             return (
                 <form className={styles.headerCalcInputsMetric}>
                     <div>
-                        <label>Heigth</label>
-                        <input type="number" placeholder="cm" onChange={evento => setValorCentimetros(parseInt(evento.target.value))}/>
+                        <p>Heigth</p>
+                        <div className={styles.headerCalcInputsGroup}>
+                            <input id="cm" type="number" onChange={evento => setValorCentimetros(evento.target.value)}/>
+                            <label for="cm">cm</label>
+                        </div>
                     </div>
                     <div>
-                        <label>Weight</label>
-                        <input type="number" placeholder="kg" onChange={evento => setValorPeso(parseInt(evento.target.value))}/>
+                        <p>Weight</p>
+                        <div className={styles.headerCalcInputsGroup}>
+                            <input id="kg" type="number" onChange={evento => setValorPeso(evento.target.value)}/>
+                            <label for="kg">kg</label>
+                        </div>
                     </div>
                 </form>
             )
@@ -29,17 +35,29 @@ const Calc = () => {
             return(
                 <form className={styles.headerCalcInputsImperial}>
                     <div>
-                        <label>Heigth</label>
+                        <p>Heigth</p>
                         <div className={styles.headerCalcInputsImperialInput}>
-                            <input type="number" placeholder="ft" onChange={evento => setValorFT(evento.target.value)} />
-                            <input type="number" placeholder="in" onChange={evento => setValorIN(evento.target.value)} />
+                            <div className={styles.headerCalcInputsGroup}>
+                                <input id="ft"type="number" onChange={evento => setValorFT(evento.target.value)} />
+                                <label for="ft">ft</label>
+                            </div>
+                            <div className={styles.headerCalcInputsGroup}>
+                                <input id="in" type="number" onChange={evento => setValorIN(evento.target.value)} />
+                                <label for="in">in</label>
+                            </div>
                         </div>
                     </div>
                     <div>
-                        <label>Weight</label>
+                        <p>Weight</p>
                         <div className={styles.headerCalcInputsImperialInput}>
-                            <input type="number" placeholder="st" onChange={evento => setValorST(evento.target.value)} />
-                            <input type="number" placeholder="lbs" onChange={evento => setValorLBS(evento.target.value)} />
+                            <div className={styles.headerCalcInputsGroup}>
+                                <input id="st" type="number" onChange={evento => setValorST(evento.target.value)} />
+                                <label for="st">st</label>
+                            </div>
+                            <div className={styles.headerCalcInputsGroup}>
+                                <input id="lbs" type="number" onChange={evento => setValorLBS(evento.target.value)} />
+                                <label for="lbs">lbs</label>
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -48,19 +66,19 @@ const Calc = () => {
     }
 
     //Variaveis em metric
-    const [valorCentimetros, setValorCentimetros] = useState(0)
-    const [valorPeso, setValorPeso] = useState(0)
+    const [valorCentimetros, setValorCentimetros] = useState('')
+    const [valorPeso, setValorPeso] = useState('')
 
     //Variáveis em imperial
-    const [valorFT, setValorFT] = useState(0)
-    const [valorIN, setValorIN] = useState(0)
-    const [valorST, setValorST] = useState(0)
-    const [valorLBS, setValorLBS] = useState(0)
+    const [valorFT, setValorFT] = useState('')
+    const [valorIN, setValorIN] = useState('')
+    const [valorST, setValorST] = useState('')
+    const [valorLBS, setValorLBS] = useState('')
 
     const calculando = ()=>{
-        if(selectedOption === 'option1' && valorCentimetros != 0 && valorPeso !=0){
+        if(selectedOption === 'option1' && valorCentimetros != '' && valorPeso != ''){
             // Calculando em metric
-            const alturaMetros = valorCentimetros / 100; //Converte altura para metros
+            const alturaMetros = valorCentimetros/100; //Converte centimetros para metros
             const imc = valorPeso / (alturaMetros * alturaMetros)
             const imcArredondado = imc.toFixed(1)
 
@@ -118,7 +136,7 @@ const Calc = () => {
                     </div>
                 </div>
             )
-        } else if (selectedOption === 'option2' && valorFT != 0 && valorIN != 0 && valorST !=0 && valorLBS !=0){
+        } else if (selectedOption === 'option2' && valorFT != '' && valorIN != '' && valorST !='' && valorLBS !=''){
             // Calculando em imperial
             const pesoKG = Math.floor(((valorST * (14 + valorLBS))*0.45359237)/10) //Converter para kg arredondado
             const alturaMetros = ((valorFT * 0.3048) + (valorIN * 0.0254)).toFixed(2)//Converter para metros
@@ -191,6 +209,7 @@ const Calc = () => {
             )
         } else {
             return(
+
                 <div className={styles.headerCalcResultsWelcome}>
                     <h3>Welcome!</h3>
                     <p>Enter your height and weight and you’ll see your BMI result here</p>
@@ -209,12 +228,12 @@ const Calc = () => {
                 <h2 className={styles.headerCalcTitle}>Enter your details below</h2>
                 <form className={styles.headerCalcForm}>
                     <div>
-                        <input type="radio" name="options" value="option1" checked={selectedOption === 'option1'} onChange={handleOptionChange}/>
-                        <p className={styles.headerCalcOptions}>Metric</p>    
+                        <input id="metric" type="radio" name="options" value="option1" checked={selectedOption === 'option1'} onChange={handleOptionChange}/>
+                        <label for="metric" className={styles.headerCalcOptions}>Metric</label>    
                     </div>
                     <div>
-                        <input type="radio" name="options" value="option2" checked={selectedOption === 'option2'} onChange={handleOptionChange}/>
-                        <p className={styles.headerCalcOptions}>Imperial</p>
+                        <input id="imperial" type="radio" name="options" value="option2" checked={selectedOption === 'option2'} onChange={handleOptionChange}/>
+                        <label for="imperial" className={styles.headerCalcOptions}>Imperial</label>
                     </div>
                 </form>
                 <div className={styles.headerCalcInputs}>
