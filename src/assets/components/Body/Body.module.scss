@@ -1,0 +1,103 @@
+@mixin fontTitle(){
+    font-weight: 600;
+    color:#253347;
+}
+
+@mixin fontText(){
+    font-size: 16px;
+    font-weight: 400;
+    color: #5E6E85;
+}
+
+.section1{
+    display: flex;
+    align-items: center;
+    margin: 210px 140px 136px;
+
+    @media(max-width: 1440px){
+        margin: 390px 40px 96px -80px;
+    }
+
+    @media(max-width: 768px){
+        flex-direction: column;
+        margin: 600px 0 0;
+    }
+
+    &Image{
+        max-width: 564px;
+        width: 100%;
+        height: 388px;
+        background-color: #E7F5FE;
+        border-radius: 32px;
+        padding: 0 48px;
+        display: flex;
+        align-items: flex-end;
+
+        @media(max-width: 1440px){
+            width: 375px;
+            height: 250px;
+        }
+
+        @media(max-width: 768px){
+            padding: 0 32px;
+        }
+    
+        
+        &:hover{
+            transition: all ease .3s;
+            box-shadow: 16px 32px 56px 0px #D6E6FE;
+        }
+
+        img{
+            width: 468px;
+            height: 533px;
+            transition: all ease .3s;
+
+            @media(max-width: 1440px){
+                width: 360px;
+                height: 410px;
+            }
+
+            @media(max-width: 768px){
+                width: 310px;
+                height: 350px;
+            }
+
+            &:hover{
+                width: 478px;
+                height: 543px;
+            }
+        }
+    }
+
+    &Text{
+        margin-left: 130px;
+
+        @media(max-width: 1440px){
+            margin-left: 75px;
+        }
+
+        @media(max-width: 768px){
+            margin: 48px 24px 70px;
+        }
+    
+
+        &Title{
+            @include fontTitle();
+            font-size: 48px;
+            margin-bottom: 35px;
+
+            @media(max-width: 1440px){
+                font-size: 32px;
+            }
+        }
+
+        &Info{
+            @include fontText();
+        }
+    }
+}
+
+.section2{
+    display: flex;
+}

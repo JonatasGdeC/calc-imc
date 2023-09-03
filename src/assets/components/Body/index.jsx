@@ -10,21 +10,23 @@ import Muscle from '../../../image/fluent-emoji-high-contrast_flexed-biceps.png'
 import Pregnancy from '../../../image/ph_baby-light.png'
 import Race from '../../../image/ph_person-light.png'
 
+import styles from './Body.module.scss'
+
 const Body = () =>{
 
     return(
         <>
-            <div>
-                <div>
+            <div className={styles.section1}>
+                <div className={styles.section1Image}>
                     <img src={PhotoMen}  alt="Homem comendo comida japonesa" />
                 </div>
-                <div>
-                    <h2>What your BMI result means</h2>
-                    <p>A BMI range of 18.5 to 24.9 is considered a 'healthy weight.' Maintaining a healthy weight may lower your chances of experiencing health issues later on, such as obesity and type 2 diabetes. Aim for a nutritious diet with reduced fat and sugar content, incorporating ample fruits and vegetables. Additionally, strive for regular physical activity, ideally about 30 minutes daily for five days a week.</p>
+                <div className={styles.section1Text}>
+                    <h2 className={styles.section1TextTitle}>What your BMI result means</h2>
+                    <p className={styles.section1TextInfo}>A BMI range of 18.5 to 24.9 is considered a 'healthy weight.' Maintaining a healthy weight may lower your chances of experiencing health issues later on, such as obesity and type 2 diabetes. Aim for a nutritious diet with reduced fat and sugar content, incorporating ample fruits and vegetables. Additionally, strive for regular physical activity, ideally about 30 minutes daily for five days a week.</p>
                 </div>
             </div>
 
-            <div>
+            <div className={styles.section2}>
                 <div>
                     <div>
                         <img src={Food} alt="Comida" />
