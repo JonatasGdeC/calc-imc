@@ -166,3 +166,135 @@
         }
     }
 }
+
+.section3{
+    position: relative;
+    margin: 0 140px 120px;
+    @media (max-width: 1440px){
+        margin: 0 40px 56px;
+    }
+
+    @media(max-width: 768px){
+        margin: 0 20px 96px;
+    }
+
+    &Info{
+        width: 564px;
+
+        @media(max-width: 1440px){
+            width: 100%;
+            text-align: center;
+        }
+
+        h3{
+            @include fontTitle();
+            font-size: 48px;
+            margin-bottom: 35px;
+
+            @media(max-width: 768px){
+                font-size: 32px;
+            }
+        }
+
+        p{
+            @include fontText();
+        }
+    }
+
+    &Description{
+
+        @media(max-width:1440px){
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            align-items: center;
+        }
+
+        @media(max-width: 768px){
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: center;
+        }
+
+        &Card:nth-child(1){
+            position: absolute;
+            right: 0;
+            top: 0;
+            margin-right: 100px;
+        }
+
+        &Card:nth-child(2){
+            position: absolute;
+            right: 0;
+            top: 232px;
+            margin-right: 400px;
+            margin-top: 32px;
+        }
+
+        &Card:nth-child(3){
+            position: absolute;
+            right: 0;
+            top: 232px;
+            margin-top: 32px;
+        }
+
+        &Card:nth-child(4){
+            position: absolute;
+            right: 0;
+            top: 464px;
+            margin: 32px 596px 0 0;
+        }
+
+        &Card:nth-child(5){
+            position: absolute;
+            right: 0;
+            top: 464px;
+            margin: 32px 199px 0 0;
+        }
+
+        @media(max-width: 1440px){
+            &Card:nth-child(1), &Card:nth-child(2), &Card:nth-child(3), &Card:nth-child(4),&Card:nth-child(5){
+                position: relative;
+                margin: 24px 15px 0;
+                top: 0;
+            }
+        }
+
+        &Card{
+            padding: 32px;
+            width: 365px;
+            border-radius: 16px;
+            box-shadow: 16px 32px 56px 0px rgba(143, 174, 207, 0.25);
+            transition: all ease 0.3s;
+
+            @media(max-width: 1440px){
+                width: 335px;
+            }
+
+            @media(max-width: 768px){
+                width: 100%
+            }
+
+            &:hover{
+                scale: 1.1;
+            }
+
+            &Header{
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                margin-bottom: 16px;
+
+                h4{
+                    @include fontTitle();
+                    font-size: 20px
+                }
+            }
+
+            p{
+                @include fontText();
+            }
+        }
+    }
+}
