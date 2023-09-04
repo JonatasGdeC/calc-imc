@@ -100,4 +100,69 @@
 
 .section2{
     display: flex;
+    background: linear-gradient(290deg, rgba($color: #D6E6FE, $alpha: 0.25) 0%, rgba(214, 252, 254, 0.00) 100%);
+    padding: 72px 120px 96px;
+    margin: 0 24px 120px;
+    gap: 32px;
+    border-radius: 35px;
+
+    @media(max-width: 1440px){
+        flex-direction: column;
+        padding: 60px 40px 60px;
+        margin: 0 0 96px;
+    }
+
+    @media(max-width: 768px){
+        padding: 56px 20px;
+        margin: 0 0 72px;
+    }
+
+    &Advice{
+        &Image{
+            width: 64px;
+            height: 64px;
+            padding: 16px;
+            border-radius: 100%;
+        }
+
+        &Title{
+            @include fontTitle();
+            font-size: 24px;
+            margin: 45px 0 24px;
+        }
+
+        &Text{
+            @include fontText();
+        }
+
+        @media(max-width: 1440px){
+            display:flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        @media(max-width: 768px){
+            flex-direction: column;
+            align-items: start;
+            gap: 0;
+        }
+    }
+
+    &Advice:nth-child(1){
+        div{
+            background-color: rgba($color: #F21E84, $alpha: 0.1)
+        }
+    }
+
+    &Advice:nth-child(2){
+        div{
+            background-color: rgba($color: #F69134, $alpha: 0.15)
+        }
+    }
+
+    &Advice:nth-child(3){
+        div{
+            background-color: rgba($color: #22C1C1, $alpha: 0.15)
+        }
+    }
 }

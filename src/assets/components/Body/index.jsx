@@ -27,26 +27,32 @@ const Body = () =>{
             </div>
 
             <div className={styles.section2}>
-                <div>
-                    <div>
+                <div className={styles.section2Advice}>
+                    <div className={styles.section2AdviceImage}>
                         <img src={Food} alt="Comida" />
                     </div>
-                    <h4>Healthy eating</h4>
-                    <p>Healthy eating promotes weight control, disease prevention, better digestion, immunity, mental clarity, and mood.</p>
+                    <section>
+                        <h4 className={styles.section2AdviceTitle}>Healthy eating</h4>
+                        <p className={styles.section2AdviceText}>Healthy eating promotes weight control, disease prevention, better digestion, immunity, mental clarity, and mood.</p>
+                    </section>
                 </div>
-                <div>
-                    <div>
+                <div className={styles.section2Advice}>
+                    <div className={styles.section2AdviceImage}>
                         <img src={Barbell} alt="Barra de musculação" />
                     </div>
-                    <h4>Regular exercise</h4>
-                    <p>Exercise improves fitness, aids weight control, elevates mood, and reduces disease risk, fostering wellness and longevity.</p>
+                    <section>
+                        <h4 className={styles.section2AdviceTitle}>Regular exercise</h4>
+                        <p className={styles.section2AdviceText}>Exercise improves fitness, aids weight control, elevates mood, and reduces disease risk, fostering wellness and longevity.</p>
+                    </section>
                 </div>
-                <div>
-                    <div>
+                <div className={styles.section2Advice}>
+                    <div className={styles.section2AdviceImage}>
                         <img src={Moon} alt="Lua" />
                     </div>
-                    <h4>Adequate sleep</h4>
-                    <p>Sleep enhances mental clarity, emotional stability, and physical wellness, promoting overall restoration and rejuvenation.</p>
+                    <section>
+                        <h4 className={styles.section2AdviceTitle}>Adequate sleep</h4>
+                        <p className={styles.section2AdviceText}>Sleep enhances mental clarity, emotional stability, and physical wellness, promoting overall restoration and rejuvenation.</p>
+                    </section>
                 </div>
             </div>
 
