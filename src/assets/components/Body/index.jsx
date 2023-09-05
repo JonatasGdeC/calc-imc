@@ -16,7 +16,7 @@ const Body = () =>{
 
     return(
         <>
-            <div className={styles.section1}>
+            <div className={styles.section1} data-aos="fade-left">
                 <div className={styles.section1Image}>
                     <img src={PhotoMen}  alt="Homem comendo comida japonesa" />
                 </div>
@@ -27,7 +27,7 @@ const Body = () =>{
             </div>
 
             <div className={styles.section2}>
-                <div className={styles.section2Advice}>
+                <div className={styles.section2Advice} data-aos="fade-up" data-aos-duration="500">
                     <div className={styles.section2AdviceImage}>
                         <img src={Food} alt="Comida" />
                     </div>
@@ -36,7 +36,7 @@ const Body = () =>{
                         <p className={styles.section2AdviceText}>Healthy eating promotes weight control, disease prevention, better digestion, immunity, mental clarity, and mood.</p>
                     </section>
                 </div>
-                <div className={styles.section2Advice}>
+                <div className={styles.section2Advice} data-aos="fade-up" data-aos-duration="600">
                     <div className={styles.section2AdviceImage}>
                         <img src={Barbell} alt="Barra de musculação" />
                     </div>
@@ -45,7 +45,7 @@ const Body = () =>{
                         <p className={styles.section2AdviceText}>Exercise improves fitness, aids weight control, elevates mood, and reduces disease risk, fostering wellness and longevity.</p>
                     </section>
                 </div>
-                <div className={styles.section2Advice}>
+                <div className={styles.section2Advice} data-aos="fade-up" data-aos-duration="700">
                     <div className={styles.section2AdviceImage}>
                         <img src={Moon} alt="Lua" />
                     </div>
@@ -57,7 +57,7 @@ const Body = () =>{
             </div>
 
             <div className={styles.section3}>
-                <div className={styles.section3Info}>
+                <div className={styles.section3Info} data-aos="zoom-in-right">
                     <h3>Limitations of BMI</h3>
                     <p>Although BMI is often a practical indicator of healthy weight, it is not suited for every person. Specific groups should carefully consider their BMI outcomes, and in certain cases, the measurement may not be beneficial to use.</p>
                 </div>
