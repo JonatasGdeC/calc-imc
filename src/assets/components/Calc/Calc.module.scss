@@ -16,7 +16,7 @@
     }
 
     
-    @media (max-width: 1440px){
+    @media (max-width: 1439px){
         width: 100%;
         flex-direction: column;
         padding: 32px 43px 326px 39px;
@@ -24,7 +24,7 @@
     
     &Mensage{
         flex-direction: column;
-        @media(max-width: 1440px){
+        @media(max-width: 1439px){
             text-align: center;
         }
     }
@@ -35,7 +35,7 @@
         font-size: 64px;
         letter-spacing: -3.2px;
 
-        @media (max-width: 1440px){
+        @media (max-width: 1439px){
             font-size: 48px;
             margin: 24px 0;
         }
@@ -61,14 +61,14 @@
         background-color: #fff;
         box-shadow: 16px 32px 56px 0px #D6E6FE;
 
-        @media (max-width: 1440px){
+        @media (max-width: 1439px){
             width: 686px;
             left: 0;
             top: 354px;
             margin: 0 40px;
         }
 
-        @media (max-width:768px){
+        @media (max-width:767px){
             width: 100%;
             margin: 0;
             top: 475px;
@@ -87,7 +87,7 @@
             display: flex;
             gap: 165px;
 
-            @media(max-width: 768px){
+            @media(max-width: 767px){
                 gap: 53px;
             }
 
@@ -130,7 +130,7 @@
                 font-size: 24px;
                 font-weight: 600;
 
-                @media (max-width:768px){
+                @media (max-width:767px){
                     width: 100%;
                 }
 
@@ -149,7 +149,7 @@
                 display: flex;
                 gap: 24px;
 
-                @media (max-width:768px){
+                @media (max-width:767px){
                     flex-direction: column;
                 }
             }
