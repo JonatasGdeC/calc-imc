@@ -20,14 +20,14 @@ const Calc = () => {
                     <div>
                         <p>Heigth</p>
                         <div className={styles.headerCalcInputsGroup}>
-                            <input id="cm" type="number" onChange={evento => setValorCentimetros(evento.target.value)}/>
+                            <input id="cm" type="number" placeholder="0" onChange={evento => setValorCentimetros(evento.target.value)}/>
                             <label for="cm">cm</label>
                         </div>
                     </div>
                     <div>
                         <p>Weight</p>
                         <div className={styles.headerCalcInputsGroup}>
-                            <input id="kg" type="number" onChange={evento => setValorPeso(evento.target.value)}/>
+                            <input id="kg" type="number" placeholder="0" onChange={evento => setValorPeso(evento.target.value)}/>
                             <label for="kg">kg</label>
                         </div>
                     </div>
@@ -40,11 +40,11 @@ const Calc = () => {
                         <p>Heigth</p>
                         <div className={styles.headerCalcInputsImperialInput}>
                             <div className={styles.headerCalcInputsGroup}>
-                                <input id="ft"type="number" onChange={evento => setValorFT(evento.target.value)} />
+                                <input id="ft"type="number" placeholder="0" onChange={evento => setValorFT(evento.target.value)} />
                                 <label for="ft">ft</label>
                             </div>
                             <div className={styles.headerCalcInputsGroup}>
-                                <input id="in" type="number" onChange={evento => setValorIN(evento.target.value)} />
+                                <input id="in" type="number" placeholder="0" onChange={evento => setValorIN(evento.target.value)} />
                                 <label for="in">in</label>
                             </div>
                         </div>
@@ -53,11 +53,11 @@ const Calc = () => {
                         <p>Weight</p>
                         <div className={styles.headerCalcInputsImperialInput}>
                             <div className={styles.headerCalcInputsGroup}>
-                                <input id="st" type="number" onChange={evento => setValorST(evento.target.value)} />
+                                <input id="st" type="number" placeholder="0" onChange={evento => setValorST(evento.target.value)} />
                                 <label for="st">st</label>
                             </div>
                             <div className={styles.headerCalcInputsGroup}>
-                                <input id="lbs" type="number" onChange={evento => setValorLBS(evento.target.value)} />
+                                <input id="lbs" type="number" placeholder="0" onChange={evento => setValorLBS(evento.target.value)} />
                                 <label for="lbs">lbs</label>
                             </div>
                         </div>
