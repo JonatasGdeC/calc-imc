@@ -3,6 +3,7 @@ import styles from './Calc.module.scss';
 
 import ImagemLogo from '../../../image/logo.png'
 
+// eslint-disable-next-line no-undef
 AOS.init();
 
 const Calc = () => {
@@ -23,14 +24,14 @@ const Calc = () => {
                         <p>Heigth</p>
                         <div className={styles.headerCalcInputsGroup}>
                             <input id="cm" type="number" placeholder="0" onChange={evento => setValorCentimetros(evento.target.value)}/>
-                            <label for="cm">cm</label>
+                            <label htmlFor="cm">cm</label>
                         </div>
                     </div>
                     <div>
                         <p>Weight</p>
                         <div className={styles.headerCalcInputsGroup}>
                             <input id="kg" type="number" placeholder="0" onChange={evento => setValorPeso(evento.target.value)}/>
-                            <label for="kg">kg</label>
+                            <label htmlFor="kg">kg</label>
                         </div>
                     </div>
                 </form>
@@ -43,11 +44,11 @@ const Calc = () => {
                         <div className={styles.headerCalcInputsImperialInput}>
                             <div className={styles.headerCalcInputsGroup}>
                                 <input id="ft"type="number" placeholder="0" onChange={evento => setValorFT(evento.target.value)} />
-                                <label for="ft">ft</label>
+                                <label htmlFor="ft">ft</label>
                             </div>
                             <div className={styles.headerCalcInputsGroup}>
                                 <input id="in" type="number" placeholder="0" onChange={evento => setValorIN(evento.target.value)} />
-                                <label for="in">in</label>
+                                <label htmlFor="in">in</label>
                             </div>
                         </div>
                     </div>
@@ -56,11 +57,11 @@ const Calc = () => {
                         <div className={styles.headerCalcInputsImperialInput}>
                             <div className={styles.headerCalcInputsGroup}>
                                 <input id="st" type="number" placeholder="0" onChange={evento => setValorST(evento.target.value)} />
-                                <label for="st">st</label>
+                                <label htmlFor="st">st</label>
                             </div>
                             <div className={styles.headerCalcInputsGroup}>
                                 <input id="lbs" type="number" placeholder="0" onChange={evento => setValorLBS(evento.target.value)} />
-                                <label for="lbs">lbs</label>
+                                <label htmlFor="lbs">lbs</label>
                             </div>
                         </div>
                     </div>
@@ -234,11 +235,11 @@ const Calc = () => {
                 <form className={styles.headerCalcForm}>
                     <div>
                         <input id="metric" type="radio" name="options" value="option1" checked={selectedOption === 'option1'} onChange={handleOptionChange}/>
-                        <label for="metric" className={styles.headerCalcOptions}>Metric</label>    
+                        <label htmlFor="metric" className={styles.headerCalcOptions}>Metric</label>    
                     </div>
                     <div>
                         <input id="imperial" type="radio" name="options" value="option2" checked={selectedOption === 'option2'} onChange={handleOptionChange}/>
-                        <label for="imperial" className={styles.headerCalcOptions}>Imperial</label>
+                        <label htmlFor="imperial" className={styles.headerCalcOptions}>Imperial</label>
                     </div>
                 </form>
                 <div className={styles.headerCalcInputs}>
